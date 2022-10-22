@@ -1,0 +1,82 @@
+*, *:is(::after, ::before) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 1rem "Veranda", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  background-color: #000;
+}
+body .container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+}
+body .container .loader {
+  isolation: isolate;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+body .container .loader:nth-child(1)::before, body .container .loader:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent, rgba(0, 255, 255, 0.4));
+  background-size: 100px 180px;
+  background-repeat: no-repeat;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+body .container .loader:nth-child(2), body .container .loader:nth-child(4) {
+  animation-delay: -1.5s;
+  filter: hue-rotate(150deg);
+}
+body .container .loader span {
+  position: absolute;
+  inset: 20px;
+  background-color: #000;
+  border-radius: 50%;
+}
+body .container .loader i {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  width: 20px;
+  height: 20px;
+  background-color: #0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff, 0 0 50px #0ff, 0 0 60px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
